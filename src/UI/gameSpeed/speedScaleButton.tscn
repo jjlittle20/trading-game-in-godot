@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://xbm26vkuep58"]
+
+[ext_resource type="Script" uid="uid://vh0hyld0aked" path="res://src/UI/gameSpeed/speedScaleButton.gd" id="1_rtc44"]
+
+[node name="Control" type="Control" unique_id=43047324]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rtc44")
+
+[node name="Button" type="Button" parent="." unique_id=157649159]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 29.0
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

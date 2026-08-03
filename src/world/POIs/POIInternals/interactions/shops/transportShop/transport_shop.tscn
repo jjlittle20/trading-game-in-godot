@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://wf30mwfbbb2p"]
+
+[ext_resource type="Script" uid="uid://c7oc7rv0rk3m6" path="res://src/world/POIs/POIInternals/interactions/shops/transportShop/transportShop.gd" id="1_8ocd6"]
+[ext_resource type="Script" uid="uid://ce8mqwkuoiuy" path="res://src/world/POIs/POIInternals/interactions/shops/stockManager.gd" id="1_eqh2q"]
+
+[node name="TransportShop" type="Node" unique_id=1793876207 node_paths=PackedStringArray("button")]
+script = ExtResource("1_8ocd6")
+button = NodePath("Button")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=613505297]
+visible = false
+
+[node name="stock" type="Control" parent="CanvasLayer" unique_id=510004829]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/stock" unique_id=1807568751]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 194.0
+offset_right = 42.0
+offset_bottom = 234.0
+script = ExtResource("1_eqh2q")
+
+[node name="Button" type="Button" parent="." unique_id=1665442675]
+offset_top = 165.0
+offset_right = 8.0
+offset_bottom = 173.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

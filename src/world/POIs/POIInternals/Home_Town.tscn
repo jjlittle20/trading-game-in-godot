@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://br8eyg8q81ejg"]
+
+[ext_resource type="Script" uid="uid://c7l5x7by6x6u" path="res://src/world/POIs/POIInternals/interactions/interactionManager.gd" id="1_c6htp"]
+[ext_resource type="Script" uid="uid://sb0cmkecsynq" path="res://src/world/POIs/POISpawner/POINamePlateLabel.gd" id="2_ajk4j"]
+
+[node name="Home Town" type="Node2D" unique_id=423640928]
+script = ExtResource("1_c6htp")
+
+[node name="Label" type="Label" parent="." unique_id=521680408]
+offset_left = 166.0
+offset_top = 107.0
+offset_right = 206.0
+offset_bottom = 130.0
+text = "Home Town Internal"
+script = ExtResource("2_ajk4j")

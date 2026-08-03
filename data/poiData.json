@@ -1,0 +1,48 @@
+{
+  "home_town": {
+	"id": "home_town",
+	"name": "Home Town",
+	"filePath": "res://src/world/POIs/POIInternals/Home_Town.tscn",
+	"coords": {
+	  "x": 300,
+	  "y": 300
+	},
+	"interactions": [
+	  {
+		"id": "EXIT_TO_WORLD_MAP",
+		"name": "Exit"
+	  },
+	  {
+		"id": "TRANSPORT_SHOP",
+		"name": "Transport"
+	  }
+	]
+  },
+  "test1": {
+	"id": "test1",
+	"name": "Test1",
+	"filePath": "res://src/world/POIs/POIInternals/Home_Town.tscn",
+	"coords": {
+	  "x": 400,
+	  "y": 400
+	}
+  },
+  "test2": {
+	"id": "test2",
+	"name": "Test2",
+	"filePath": "res://src/world/POIs/POIInternals/Home_Town.tscn",
+	"coords": {
+	  "x": 800,
+	  "y": 800
+	}
+  },
+  "test3": {
+	"id": "test3",
+	"name": "Test3",
+	"filePath": "res://src/world/POIs/POIInternals/Home_Town.tscn",
+	"coords": {
+	  "x": 700,
+	  "y": 300
+	}
+  }
+}

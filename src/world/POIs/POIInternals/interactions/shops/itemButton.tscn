@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://86i62hv4cgam"]
+
+[ext_resource type="Script" uid="uid://dk1vaaopsvcig" path="res://src/world/POIs/POIInternals/interactions/shops/item_button.gd" id="1_6far4"]
+
+[node name="Button" type="Button" unique_id=1816703042]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_6far4")

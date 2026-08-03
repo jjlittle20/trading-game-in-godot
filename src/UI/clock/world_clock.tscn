@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dck0oq36qxuq3"]
+
+[ext_resource type="Script" uid="uid://b53d8dcilwsnx" path="res://src/UI/clock/worldClock.gd" id="1_uox0m"]
+[ext_resource type="Script" uid="uid://bbfn12obn5b1j" path="res://src/UI/clock/worldClockLabel.gd" id="2_uox0m"]
+
+[node name="WorldClock" type="Control" unique_id=499542118]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uox0m")
+
+[node name="Label" type="Label" parent="." unique_id=840699004]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_uox0m")
