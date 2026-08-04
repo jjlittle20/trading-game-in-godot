@@ -1,6 +1,6 @@
 extends Node
 
-var POIDATAFILEPATH: String = "res://data/poiData.json"
+var POIDATAFILEPATH: String = "res://content/base/world/pois.json"
 var POIData = JSON.parse_string(FileAccess.get_file_as_string(POIDATAFILEPATH))
 
 

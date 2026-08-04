@@ -12,9 +12,10 @@ func _ready() -> void:
 		var y = POIData[key].coords.y
 		child.position = Vector2(x, y)
 		child.enterPOI.connect(_on_area_2d_enter_poi)
-		
+
 		self.add_child(child)
 	spawnPlayerOnWorldMap()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -23,8 +24,8 @@ func _process(_delta: float) -> void:
 
 func _on_area_2d_enter_poi(poiID: String) -> void:
 	var poi = POIData[poiID]
-	Utils.updatePlayerPos(poi.coords.x, poi.coords.y)
-	Utils.updateTime(WorldClock.get_time_int())
+	Game.player.set_location(Vector2(poi.coords.x, poi.coords.y))
+	Game.player.set_time(WorldClock.get_time_int())
 	loadPOI(poi.filePath)
 
 
@@ -34,6 +35,6 @@ func loadPOI(filePath) -> void:
 
 func spawnPlayerOnWorldMap() -> void:
 	var playerNode = preload("res://src/player/Player.tscn").instantiate()
-	playerNode.global_position = Utils.getPlayerPos()
-	
+	playerNode.global_position = Game.player.get_location()
+
 	self.add_child(playerNode)
