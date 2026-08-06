@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://wf30mwfbbb2p"]
+
+[ext_resource type="Script" uid="uid://c7oc7rv0rk3m6" path="res://src/presentation/interactions/shops/transport_shop/transport_shop.gd" id="1_8ocd6"]
+
+[node name="TransportShop" type="Node" unique_id=1793876207 node_paths=PackedStringArray("button")]
+script = ExtResource("1_8ocd6")
+button = NodePath("Button")
+
+[node name="Button" type="Button" parent="." unique_id=1665442675]
+offset_top = 165.0
+offset_right = 8.0
+offset_bottom = 173.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
