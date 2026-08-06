@@ -1,22 +1,24 @@
 {
-	"TRANSPORT_SHOP":{
-		"BASIC":[],
-		"ADVANCED":[],
-		"ELITE":[]
+	"TRANSPORT_SHOP": {
+		"BASIC": [
+			"BASIC_WAGON"
+		],
+		"ADVANCED": [],
+		"ELITE": []
 	},
-	"WEAPONS_SHOP":{
-		"BASIC":[],
-		"ADVANCED":[],
-		"ELITE":[]
+	"WEAPONS_SHOP": {
+		"BASIC": [],
+		"ADVANCED": [],
+		"ELITE": []
 	},
-	"ITEMS_SHOP":{
-		"BASIC":[],
-		"ADVANCED":[],
-		"ELITE":[]
+	"ITEMS_SHOP": {
+		"BASIC": [],
+		"ADVANCED": [],
+		"ELITE": []
 	},
-	"RESOURCE_SHOP":{
-		"BASIC":[],
-		"ADVANCED":[],
-		"ELITE":[]
+	"RESOURCE_SHOP": {
+		"BASIC": [],
+		"ADVANCED": [],
+		"ELITE": []
 	}
 }

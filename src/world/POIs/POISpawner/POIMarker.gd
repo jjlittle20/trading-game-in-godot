@@ -28,9 +28,10 @@ func _create_collision() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var poiName = PoiManager.getPOIName(poiID)
-	poiLabel.text = poiName
-	poiButton.text = "Enter " + poiName
+	var poi_name = Game.world.get_poi_name(poiID)
+	# var poiName = PoiManager.getPOIName(poiID)
+	poiLabel.text = poi_name
+	poiButton.text = "Enter " + poi_name
 	poiButton.hide()
 	circle_radius = getPOIIconSize()
 	_create_collision()

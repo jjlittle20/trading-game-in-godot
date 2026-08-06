@@ -1,4 +1,6 @@
 extends Label
 
+
 func _ready() -> void:
-	self.text = PoiManager.getPOIName("home_town")
+	var poi_id = Game.world.get_current_poi_id()
+	self.text = Game.world.get_poi_name(poi_id)
