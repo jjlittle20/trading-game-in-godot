@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cyojs6emmhneu"]
+
+[ext_resource type="Script" uid="uid://bolh2jcstxyha" path="res://src/UI/trade_item_row.gd" id="1_djvym"]
+
+[node name="TradeItemRow" type="PanelContainer" unique_id=382096588]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_djvym")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1199212370]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=906983135]
+layout_mode = 2
+
+[node name="ItemDetails" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1960814548]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer/ItemDetails" unique_id=724917390]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/HBoxContainer/ItemDetails" unique_id=2116106165]
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer" unique_id=391274853]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PriceLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1168910672]
+layout_mode = 2
+
+[node name="QuantitySpinBox" type="SpinBox" parent="MarginContainer/HBoxContainer" unique_id=2039874705]
+layout_mode = 2
+min_value = 1.0
+max_value = 99.0
+value = 1.0
+
+[node name="BuyButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=292450926]
+layout_mode = 2
+text = "Buy"

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b6rxm1wvl8gwm"]
+
+[node name="GenericTradePanel" type="PanelContainer" unique_id=1662003874]
+custom_minimum_size = Vector2(700, 450)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=792786159]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=95833785]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=302031696]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/Header" unique_id=1535871881]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/Header" unique_id=428112404]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/Header" unique_id=141312818]
+layout_mode = 2
+text = "x"
+
+[node name="ShopInfoLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1897138789]
+layout_mode = 2
+
+[node name="Seperator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=662895627]
+layout_mode = 2
+
+[node name="StockScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=1866431344]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StockContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/StockScroll" unique_id=945193357]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmptyStockLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1848952126]
+layout_mode = 2
+text = "No items are available."
+horizontal_alignment = 1

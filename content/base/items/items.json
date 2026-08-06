@@ -1,0 +1,14 @@
+{
+  "general": [],
+  "weapons": [],
+  "resources": [],
+  "transport": [
+	{
+	  "id": "BASIC_WAGON",
+	  "name": "Basic Wagon",
+	  "description": "A Wagon. Basic in nature.",
+	  "maxDurability": 100,
+	  "cost": 2000
+	}
+  ]
+}

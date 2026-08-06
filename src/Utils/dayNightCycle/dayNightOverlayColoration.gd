@@ -16,7 +16,7 @@ func _ready() -> void:
 	if WorldClock.time_changed.is_connected(_on_time_changed) == false:
 		WorldClock.time_changed.connect(_on_time_changed)
 
-	_update_target_color(WorldClock.hour, WorldClock.minute)
+	update_day_night_colour(WorldClock.day, WorldClock.hour, WorldClock.minute)
 	color = target_color
 
 
@@ -24,12 +24,11 @@ func _process(delta: float) -> void:
 	color = color.lerp(target_color, delta * transition_speed)
 
 
-func _on_time_changed() -> void:
-	var time = WorldClock.get_time_int()
-	_update_target_color(time["hour"], time["minute"])
+func _on_time_changed(day: int, hour: int, minute: int) -> void:
+	update_day_night_colour(day, hour, minute)
 
 
-func _update_target_color(hour: int, minute: int) -> void:
+func update_day_night_colour(_day: int, hour: int, minute: int) -> void:
 	var time := hour + float(minute) / 60.0
 
 	if time >= 6.0 and time < 8.0:

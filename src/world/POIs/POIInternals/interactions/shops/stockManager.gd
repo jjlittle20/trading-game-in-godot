@@ -1,13 +1,9 @@
 extends Control
 
-var stock = [{ "id": 1, "name": "Wagon", "cost": 200, "maxDurability": 100, "currentDurability": 78 }]
-const itemButton := preload("res://src/world/POIs/POIInternals/interactions/shops/itemButton.tscn")
+const ITEM_BUTTON := preload("res://src/world/POIs/POIInternals/interactions/shops/itemButton.tscn")
 
 
 func _ready() -> void:
+	var stock: Array[Dictionary] = (Game.shops.get_stock_items("TRANSPORT_SHOP", "BASIC"))
 	for item in stock:
-		var child = itemButton.instantiate()
-		child.setup(
-			item["name"],
-		)
-		add_child(child)
+		print("Stocking: ", item.get("name", item.get("id", "Unknown")))

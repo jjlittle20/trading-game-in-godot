@@ -1,28 +1,39 @@
 extends Node2D
 
-@export var poi_id: String = "home_town"
+# @export var poi_id: String = ""
 
 const EXIT_BUTTON_PATH := "res://src/world/POIs/Components/exitToWorldMapButton/ExitButton.tscn"
-const TRANSPORT_SHOP_PATH := "res://src/world/POIs/POIInternals/interactions/shops/transportShop/transport_shop.tscn"
+
+const SHOP_INTERACTION_PATH := preload(
+	"res://src/world/POIs/POIInternals/interactions/shops/transportShop/transport_shop.tscn"
+)
 
 
 func _ready() -> void:
-	var interactions = PoiManager.getPOIInteractions(poi_id)
+	var poi_id: String = Game.world.get_current_poi_id()
 
-	if interactions == null:
-		push_warning("No interactions found for POI: " + poi_id)
+	if poi_id.is_empty():
+		push_error("No current POI selected")
 		return
 
+	var interactions: Array = (Game.world.get_poi_interactions(poi_id))
+
 	for interaction in interactions:
-		print(interaction)
 		if not interaction is Dictionary:
-			push_warning("Invalid interaction data: " + str(interaction))
+			push_warning("Invalid interaction data: %s" % str(interaction))
 			continue
-		match interaction["id"]:
+
+		var interaction_id: String = str(interaction.get("id", ""))
+
+		match interaction_id:
 			"EXIT_TO_WORLD_MAP":
 				add_exit_button(EXIT_BUTTON_PATH)
-			"TRANSPORT_SHOP":
-				add_interaction(TRANSPORT_SHOP_PATH,interaction)
+
+			"TRANSPORT_SHOP", "WEAPONS_SHOP", "ITEMS_SHOP", "RESOURCE_SHOP":
+				add_interaction(SHOP_INTERACTION_PATH, interaction)
+
+			_:
+				push_warning("Unknown interaction id: %s" % interaction_id)
 
 
 func add_exit_button(path) -> void:
@@ -34,14 +45,9 @@ func add_exit_button(path) -> void:
 	add_child(child)
 
 
-func add_interaction(path,interaction) -> void:
-	if path == null:
-		push_error("Failed to load: " + path)
-		return
-		
-	var scene := load(path) as PackedScene
-	var child = scene.instantiate()
-	child.setup(
-			interaction["name"],
-		)
-	add_child(child)
+func add_interaction(scene: PackedScene, interaction_data: Dictionary) -> void:
+	var interaction_node = scene.instantiate()
+
+	interaction_node.setup(interaction_data.duplicate(true))
+
+	add_child(interaction_node)
