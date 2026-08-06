@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cl8y6yrwiq1n1"]
+
+[ext_resource type="Script" uid="uid://couexc46cu50s" path="res://src/presentation/world_map/poi_marker/poi_marker.gd" id="1_67djp"]
+
+[node name="Area2D" type="Area2D" unique_id=342166731]
+script = ExtResource("1_67djp")
+
+[node name="Label" type="Label" parent="." unique_id=1128552100]
+offset_left = -41.0
+offset_top = -52.0
+offset_right = 52.0
+offset_bottom = -29.0
+text = "Home Town"
+
+[node name="EnterButton" type="Button" parent="." unique_id=1767652982]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="EnterButton" to="." method="_on_enter_button_pressed"]

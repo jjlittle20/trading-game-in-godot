@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://m6l8wm5a8xbp"]
+
+[ext_resource type="PackedScene" uid="uid://dck0oq36qxuq3" path="res://src/presentation/clock/world_clock.tscn" id="1_qpvh6"]
+[ext_resource type="Script" uid="uid://kvgsp45gkxt4" path="res://src/presentation/game_speed/speed_scale_box.gd" id="2_2xwxy"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1084649843]
+
+[node name="Control" type="Control" parent="." unique_id=941560307]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1789201903]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 30
+
+[node name="WorldClock" parent="Control/VBoxContainer" unique_id=499542118 instance=ExtResource("1_qpvh6")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=94818549]
+layout_mode = 2
+theme_override_constants/separation = 95
+script = ExtResource("2_2xwxy")

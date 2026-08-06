@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cmlaxs34bbpeu"]
-
-[ext_resource type="Script" uid="uid://dmsngytaxdkr6" path="res://src/world/POIs/POIDataManager/POI_Data_Manager.gd" id="1_3051m"]
-
-[node name="POI_Data_Manager" type="Node" unique_id=266226871]
-script = ExtResource("1_3051m")

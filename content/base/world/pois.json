@@ -1,49 +1,49 @@
 {
-  "home_town": {
-	"id": "home_town",
-	"name": "Home Town",
-	"filePath": "res://src/world/POIs/POIInternals/GenericTownInterior.tscn",
-	"coords": {
-	  "x": 300,
-	  "y": 300
+	"home_town": {
+		"id": "home_town",
+		"name": "Home Town",
+		"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
+		"coords": {
+			"x": 300.0,
+			"y": 300.0
+		},
+		"interactions": [
+			{
+				"id": "EXIT_TO_WORLD_MAP",
+				"name": "Exit"
+			},
+			{
+				"id": "TRANSPORT_SHOP",
+				"level": "BASIC",
+				"name": "Transport"
+			}
+		]
 	},
-	"interactions": [
-	  {
-		"id": "EXIT_TO_WORLD_MAP",
-		"name": "Exit"
-	  },
-	  {
-		"id": "TRANSPORT_SHOP",
-		"level": "BASIC",
-		"name": "Transport"
-	  }
-	]
-  },
-  "test1": {
-	"id": "test1",
-	"name": "Test1",
-	"filePath": "res://src/world/POIs/POIInternals/GenericTownInterior.tscn",
-	"coords": {
-	  "x": 400,
-	  "y": 400
+	"test1": {
+		"id": "test1",
+		"name": "Test1",
+		"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
+		"coords": {
+			"x": 400.0,
+			"y": 400.0
+		}
+	},
+	"test2": {
+		"id": "test2",
+		"name": "Test2",
+		"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
+		"coords": {
+			"x": 800.0,
+			"y": 800.0
+		}
+	},
+	"test3": {
+		"id": "test3",
+		"name": "Test3",
+		"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
+		"coords": {
+			"x": 700.0,
+			"y": 300.0
+		}
 	}
-  },
-  "test2": {
-	"id": "test2",
-	"name": "Test2",
-	"filePath": "res://src/world/POIs/POIInternals/GenericTownInterior.tscn",
-	"coords": {
-	  "x": 800,
-	  "y": 800
-	}
-  },
-  "test3": {
-	"id": "test3",
-	"name": "Test3",
-	"filePath": "res://src/world/POIs/POIInternals/GenericTownInterior.tscn",
-	"coords": {
-	  "x": 700,
-	  "y": 300
-	}
-  }
 }
