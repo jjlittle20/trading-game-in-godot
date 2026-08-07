@@ -11,7 +11,7 @@ const TRADE_MODAL_SCENE = preload("res://src/presentation/trading/generic_trade_
 func setup(interaction_data: Dictionary) -> void:
 	shop_id = str(interaction_data.get("id", ""))
 
-	shop_level = str(interaction_data.get("type", "BASIC")).to_upper()
+	shop_level = str(interaction_data.get("level", "BASIC")).to_upper()
 
 	var display_name: String = str(interaction_data.get("name", shop_id))
 
@@ -41,10 +41,13 @@ func open_shop() -> void:
 
 	trade_panel.setup(shop_id, shop_level, true)
 
-	var ui_layer := get_tree().current_scene.get_node_or_null("UI")
+	trade_panel.purchase_requested.connect(_on_purchase_requested)
+
+	var ui_layer := (get_tree().current_scene.get_node_or_null("UI"))
 
 	if ui_layer == null:
 		push_error("Current scene has no UI CanvasLayer")
+		trade_panel.queue_free()
 		return
 
 	ui_layer.add_child(trade_panel)

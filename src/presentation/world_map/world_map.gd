@@ -47,9 +47,17 @@ func _on_area_2d_enter_poi(poi_id: String) -> void:
 		push_error("POI '%s' has no scene path" % poi_id)
 		return
 
-	Game.player.set_location(Game.world.get_poi_position(poi_id))
+	var location_saved: bool = Game.player.set_location(Game.world.get_poi_position(poi_id))
 
-	Game.clock.save()
+	if not location_saved:
+		push_error("Could not save location before entering %s" % poi_id)
+		return
+
+	var time_saved: bool = Game.clock.save()
+
+	if not time_saved:
+		push_error("Could not save time before entering %s" % poi_id)
+		return
 
 	var entered: bool = Game.world.enter_poi(poi_id)
 

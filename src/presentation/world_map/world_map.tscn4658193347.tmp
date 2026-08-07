@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dul5e8q7e6qfl"]
+
+[ext_resource type="Script" uid="uid://casrmlofouwjx" path="res://src/presentation/world_map/world_map.gd" id="1_00yv5"]
+[ext_resource type="PackedScene" uid="uid://m6l8wm5a8xbp" path="res://src/presentation/hud/hud.tscn" id="2_0brur"]
+[ext_resource type="PackedScene" uid="uid://n3dtd8w7cb61" path="res://src/presentation/world_map/day_night/day_night_overlay.tscn" id="4_cfsd3"]
+
+[node name="World Map" type="Node2D" unique_id=510562910]
+script = ExtResource("1_00yv5")
+
+[node name="dayNightOverlay" parent="." unique_id=972309700 instance=ExtResource("4_cfsd3")]
+
+[node name="HUD" parent="." unique_id=1084649843 instance=ExtResource("2_0brur")]
