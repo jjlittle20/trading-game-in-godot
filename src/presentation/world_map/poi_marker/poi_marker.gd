@@ -28,7 +28,7 @@ func _create_collision() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var poi_name = Game.world.get_poi_name(poiID)S
+	var poi_name = Game.world.get_poi_name(poiID)
 	poiLabel.text = poi_name
 	poiButton.text = "Enter " + poi_name
 	poiButton.hide()

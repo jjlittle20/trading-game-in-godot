@@ -2,10 +2,12 @@ extends Node2D
 
 # @export var poi_id: String = ""
 
-const EXIT_BUTTON_PATH := "res://src/presentation/interactions/exit_to_world_map/exit_to_world_map_button.tscn"
+const EXIT_BUTTON_SCENE := preload(
+	"res://src/presentation/interactions/exit_to_world_map/exit_to_world_map_button.tscn"
+)
 
-const SHOP_INTERACTION_PATH := preload(
-	"res://src/presentation/interactions/shops/transport_shop/transport_shop.tscn"
+const SHOP_INTERACTION_SCENE := preload(
+	"res://src/presentation/interactions/shops/shop_interaction.tscn"
 )
 
 
@@ -27,21 +29,17 @@ func _ready() -> void:
 
 		match interaction_id:
 			"EXIT_TO_WORLD_MAP":
-				add_exit_button(EXIT_BUTTON_PATH)
+				add_exit_button()
 
 			"TRANSPORT_SHOP", "WEAPONS_SHOP", "ITEMS_SHOP", "RESOURCE_SHOP":
-				add_interaction(SHOP_INTERACTION_PATH, interaction)
+				add_interaction(SHOP_INTERACTION_SCENE, interaction)
 
 			_:
 				push_warning("Unknown interaction id: %s" % interaction_id)
 
 
-func add_exit_button(path) -> void:
-	if path == null:
-		push_error("Failed to load: " + path)
-		return
-	var scene := load(path) as PackedScene
-	var child = scene.instantiate()
+func add_exit_button() -> void:
+	var child = EXIT_BUTTON_SCENE.instantiate()
 	add_child(child)
 
 
