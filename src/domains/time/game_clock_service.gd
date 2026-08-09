@@ -3,8 +3,12 @@ extends RefCounted
 signal time_changed(day: int, hour: int, minute: int)
 signal day_started(day: int)
 
+@export var time_scale: float = 1.0
+@export var real_seconds_per_game_hour: float = 2.0
 var _player_state = null
 var _save_service = null
+var travelling: bool = false
+var _time_accumulator: float = 0.0
 
 
 func _init(player_state, save_service) -> void:
@@ -92,3 +96,35 @@ func _emit_time_events(previous_time: Dictionary, current_time: Dictionary) -> v
 			day_started.emit(started_day)
 
 	time_changed.emit(current_day, current_hour, current_minute)
+
+
+func set_time_scale(new_scale: float) -> void:
+	time_scale = maxf(new_scale, 0.0)
+
+
+func get_time_scale() -> float:
+	return time_scale
+
+
+func is_travelling() -> bool:
+	return travelling
+
+
+func set_travelling(value: bool) -> void:
+	travelling = value
+
+
+func get_time_accumulator() -> float:
+	return _time_accumulator
+
+
+func set_time_accumulator(value: float) -> void:
+	_time_accumulator = value
+
+
+func get_real_seconds_per_game_hour() -> float:
+	return real_seconds_per_game_hour
+
+
+func set_real_seconds_per_game_hour(value: float) -> void:
+	real_seconds_per_game_hour = value

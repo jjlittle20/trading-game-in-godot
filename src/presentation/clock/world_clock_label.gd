@@ -10,7 +10,7 @@ func _ready() -> void:
 		int(current_time.get("minute", 0)),
 	)
 
-	WorldClock.time_changed.connect(_on_time_changed)
+	Game.clock.time_changed.connect(_on_time_changed)
 
 
 func _on_time_changed(day: int, hour: int, minute: int) -> void:

@@ -7,5 +7,32 @@
 		"day": 0.0,
 		"hour": 0.0,
 		"minute": 0.0
+	},
+	"inventory": {
+		"carry_capacity": 100.0,
+		"cargo":{},
+		"general": {},
+		"equipment": {},
+		"money": 1000.0,
+		"transport":{"BASIC_WAGON": 1}
+	},
+	"party": {
+		"members": {
+			"member1": {
+				"name": "Big Jim",
+				"health": 100.0,
+				"stamina": 100.0,
+				"skills": {
+					"combat": 1.0,
+					"trading": 1.0,
+					"crafting": 1.0
+				}
+			}
+		},
+		"reputation":{
+			"faction1": 0.0,
+			"faction2": 0.0,
+			"faction3": 0.0
+		}
 	}
 }

@@ -13,10 +13,14 @@ var target_color: Color
 func _ready() -> void:
 	target_color = day_color
 
-	if WorldClock.time_changed.is_connected(_on_time_changed) == false:
-		WorldClock.time_changed.connect(_on_time_changed)
-
-	update_day_night_colour(WorldClock.day, WorldClock.hour, WorldClock.minute)
+	if Game.clock.time_changed.is_connected(_on_time_changed) == false:
+		Game.clock.time_changed.connect(_on_time_changed)
+	var current_time: Dictionary = Game.clock.get_time()
+	update_day_night_colour(
+		current_time.get("day", 1),
+		current_time.get("hour", 8),
+		current_time.get("minute", 0),
+	)
 	color = target_color
 
 

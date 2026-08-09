@@ -26,14 +26,32 @@ func _create_collision() -> void:
 	add_child(collision_shape)
 
 
+func _create_discovery_zone() -> void:
+	var discovery_area := Area2D.new()
+	var collision_shape := CollisionShape2D.new()
+	var circle_shape := CircleShape2D.new()
+
+	# The discovery area is larger than the visible circle.
+	circle_shape.radius = circle_radius * 2.0
+
+	collision_shape.shape = circle_shape
+	discovery_area.add_child(collision_shape)
+	discovery_area.connect("body_entered", _on_body_entered_discovery)
+
+	add_child(discovery_area)
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var poi_name = Game.world.get_poi_name(poiID)
 	poiLabel.text = poi_name
 	poiButton.text = "Enter " + poi_name
 	poiButton.hide()
+	if not (Game.world.is_poi_discovered(poiID)):
+		self.hide()
 	circle_radius = getPOIIconSize()
 	_create_collision()
+	_create_discovery_zone()
 	queue_redraw()
 
 
@@ -63,6 +81,16 @@ func _on_body_entered(body: Node2D) -> void:
 
 		body.stop_at_poi()
 		poiButton.show()
+
+
+func _on_body_entered_discovery(body: Node2D) -> void:
+	print("Body entered discovery zone: %s" % body.name)
+	if body.is_in_group("player"):
+		if not body.can_trigger_poi:
+			return
+
+		Game.world.discover_poi(poiID)
+		self.show()
 
 
 func _on_enter_button_pressed() -> void:

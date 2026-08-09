@@ -14,6 +14,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ItemDetails" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1960814548]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer/ItemDetails" unique_id=724917390]

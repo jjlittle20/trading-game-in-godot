@@ -1,24 +1,42 @@
 {
-	"TRANSPORT_SHOP": {
-		"BASIC": [
-			"BASIC_WAGON"
+  "TRANSPORT_SHOP": {
+	"display_name": "Transport Dealer",
+	"buy_multiplier": 1,
+	"sell_multiplier": 0.6,
+	"BASIC": [
+	  "BASIC_WAGON","DONKEY","HORSE","MULE"
+	],
+	"ADVANCED": [],
+	"ELITE": []
+  },
+  "WEAPONS_SHOP": {
+	 "display_name": "Weapons Dealer",
+	"buy_multiplier": 1,
+	"sell_multiplier": 0.6,
+	"BASIC": [
+	  "SCRAP_METAL_SWORD","MAKESHIFT_GUN"
 		],
-		"ADVANCED": [],
-		"ELITE": []
-	},
-	"WEAPONS_SHOP": {
-		"BASIC": [],
-		"ADVANCED": [],
-		"ELITE": []
-	},
-	"ITEMS_SHOP": {
-		"BASIC": [],
-		"ADVANCED": [],
-		"ELITE": []
-	},
-	"RESOURCE_SHOP": {
-		"BASIC": [],
-		"ADVANCED": [],
-		"ELITE": []
-	}
+	"ADVANCED": [],
+	"ELITE": []
+  },
+  "ITEMS_SHOP": {
+	 "display_name": "Items Dealer",
+	"buy_multiplier": 1,
+	"sell_multiplier": 0.6,
+	"BASIC": [
+	  "BOTTLE","ROPE","CANDLE"
+	],
+	"ADVANCED": [],
+	"ELITE": []
+  },
+  "RESOURCE_SHOP": {
+	 "display_name": "Resource Dealer",
+	"buy_multiplier": 1,
+	"sell_multiplier": 0.6,
+	"BASIC": [
+	  "WOOD","STONE","SCRAP_METAL","FOOD","WATER","MEDICINE"
+	],
+	"ADVANCED": [],
+	"ELITE": []
+  }
 }

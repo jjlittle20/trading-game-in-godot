@@ -1,49 +1,131 @@
 {
-	"home_town": {
-		"id": "home_town",
-		"name": "Home Town",
-		"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
-		"coords": {
-			"x": 300.0,
-			"y": 300.0
-		},
-		"interactions": [
-			{
-				"id": "EXIT_TO_WORLD_MAP",
-				"name": "Exit"
-			},
-			{
-				"id": "TRANSPORT_SHOP",
-				"level": "BASIC",
-				"name": "Transport"
-			}
-		]
+  "home_town": {
+	"id": "home_town",
+	"name": "Home Town",
+	"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
+	"coords": {
+	  "x": 300,
+	  "y": 300
 	},
-	"test1": {
-		"id": "test1",
-		"name": "Test1",
-		"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
+	"discovered": true,
+	"road_connections": [
+	  {
+		"target_poi_id": "dust_town",
+		"road_type": "DIRT_ROAD"
+	  },
+	  {
+		"target_poi_id": "west_point",
+		"road_type": "DIRT_ROAD"
+	  },
+	  {
+		"target_poi_id": "old_silo",
+		"road_type": "DIRT_ROAD"
+	  }
+	],
+	"interactions": [
+	  {
+		"id": "EXIT_TO_WORLD_MAP",
+		"name": "Exit"
+	  },
+	  {
+		"id": "TRANSPORT_SHOP",
+		"level": "BASIC",
+		"name": "Transport",
 		"coords": {
-			"x": 400.0,
-			"y": 400.0
+		  "x": 300,
+		  "y": 300
 		}
+	  },
+	  {
+		"id": "RESOURCE_SHOP",
+		"level": "BASIC",
+		"name": "Resources",
+		"coords": {
+		  "x": 400,
+		  "y": 400
+		}
+	  },
+	  {
+		"id": "ITEMS_SHOP",
+		"level": "BASIC",
+		"name": "Items",
+		"coords": {
+		  "x": 500,
+		  "y": 500
+		}
+	  },
+	  {
+		"id": "WEAPONS_SHOP",
+		"level": "BASIC",
+		"name": "Weapons",
+		"coords": {
+		  "x": 100,
+		  "y": 100
+		}
+	  }
+	]
+  },
+  "dust_town": {
+	"id": "dust_town",
+	"name": "Dust Town",
+	"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
+	"coords": {
+	  "x": 400,
+	  "y": 400
 	},
-	"test2": {
-		"id": "test2",
-		"name": "Test2",
-		"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
-		"coords": {
-			"x": 800.0,
-			"y": 800.0
-		}
+	"discovered": true,
+	"interactions": [
+	  {
+		"id": "EXIT_TO_WORLD_MAP",
+		"name": "Exit"
+	  },
+	  {
+		"id": "TRANSPORT_SHOP",
+		"level": "BASIC",
+		"name": "Old Stable"
+	  }
+	]
+  },
+  "west_point": {
+	"id": "west_point",
+	"name": "West Point",
+	"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
+	"coords": {
+	  "x": 800,
+	  "y": 800
 	},
-	"test3": {
-		"id": "test3",
-		"name": "Test3",
-		"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
-		"coords": {
-			"x": 700.0,
-			"y": 300.0
-		}
-	}
+	"discovered": true,
+	"interactions": [
+	  {
+		"id": "EXIT_TO_WORLD_MAP",
+		"name": "Exit"
+	  },
+	  {
+		"id": "TRANSPORT_SHOP",
+		"level": "BASIC",
+		"name": "Transport"
+	  }
+	]
+  },
+  "old_silo": {
+	"id": "old_silo",
+	"name": "Old Silo",
+	"filePath": "res://src/presentation/locations/town/generic_town_interior.tscn",
+	"coords": {
+	  "x": 700,
+	  "y": 300
+	},
+	"discovered": false,
+	"interactions": [
+	  {
+		"id": "EXIT_TO_WORLD_MAP",
+		"name": "Exit"
+	  },
+	  {
+		"id": "TRANSPORT_SHOP",
+		"level": "BASIC",
+		"name": "Silo Depot"
+	  }
+	]
+  }
 }

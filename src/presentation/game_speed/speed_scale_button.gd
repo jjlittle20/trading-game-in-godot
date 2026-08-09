@@ -19,4 +19,4 @@ func _ready() -> void:
 
 
 func _on_button_pressed() -> void:
-	WorldClock.set_time_scale(speed_scale)
+	Game.clock.set_time_scale(speed_scale)

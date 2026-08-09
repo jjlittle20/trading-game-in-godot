@@ -12,4 +12,4 @@ func _process(_delta: float) -> void:
 
 
 func _on_button_up() -> void:
-	SceneLoader.loadWorldMap()
+	Game.scenes.load_world_map()

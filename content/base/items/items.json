@@ -1,7 +1,78 @@
 {
-  "general": [],
-  "weapons": [],
-  "resources": [],
+  "general": [
+	{
+	  "id": "BOTTLE",
+	  "name": "Bottle",
+	  "description": "A simple bottle. Useful for carrying liquids.",
+	  "cost": 5
+	},
+	{
+	  "id": "ROPE",
+	  "name": "Rope",
+	  "description": "A sturdy rope. Useful for climbing or tying things.",
+	  "cost": 10
+	},
+	{
+	  "id": "CANDLE",
+	  "name": "Candle",
+	  "description": "A simple candle. Provides light in dark places.",
+	  "cost": 3
+	}
+  ],
+  "weapons": [
+	{
+	  "id": "SCRAP_METAL_SWORD",
+	  "name": "Scrap Metal Sword",
+	  "description": "A sword made from scrap metal. Rough and crude.",
+	  "damage": 15,
+	  "cost": 150
+	},
+	{
+	  "id": "MAKESHIFT_GUN",
+	  "name": "Makeshift Gun",
+	  "description": "A gun made from scrap metal. More tape than gun.",
+	  "damage": 25,
+	  "cost": 300
+	}
+  ],
+  "resources": [
+	{
+	  "id": "WOOD",
+	  "name": "Wood",
+	  "description": "A piece of wood. Useful for crafting.",
+	  "cost": 10
+	},
+	{
+	  "id": "STONE",
+	  "name": "Stone",
+	  "description": "A piece of stone. Useful for crafting.",
+	  "cost": 15
+	},
+	{
+	  "id": "SCRAP_METAL",
+	  "name": "Scrap Metal",
+	  "description": "A piece of scrap metal. Useful for crafting.",
+	  "cost": 20
+	},
+	{
+	  "id": "FOOD",
+	  "name": "Food",
+	  "description": "Almost rotten food.Edible but barely",
+	  "cost": 5
+	},
+	{
+	  "id": "WATER",
+	  "name": "Water",
+	  "description": "Clean(ish) water. Essential for survival.",
+	  "cost": 10
+	},
+	{
+	  "id": "MEDICINE",
+	  "name": "Medicine",
+	  "description": "Basic medical supplies. Useful for treating injuries.",
+	  "cost": 25
+	}
+  ],
   "transport": [
 	{
 	  "id": "BASIC_WAGON",
@@ -9,6 +80,27 @@
 	  "description": "A Wagon. Basic in nature.",
 	  "maxDurability": 100,
 	  "cost": 2000
+	},
+	{
+	  "id": "DONKEY",
+	  "name": "Donkey",
+	  "description": "A donkey. Useful for transport.",
+	  "maxDurability": 100,
+	  "cost": 1500
+	},
+	{
+	  "id": "HORSE",
+	  "name": "Horse",
+	  "description": "A horse. Fast and strong.",
+	  "maxDurability": 100,
+	  "cost": 2500
+	},
+	{
+	  "id": "MULE",
+	  "name": "Mule",
+	  "description": "A mule. Reliable and sure-footed.",
+	  "maxDurability": 100,
+	  "cost": 1800
 	}
   ]
 }

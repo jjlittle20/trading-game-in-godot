@@ -31,11 +31,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		var mouse_position := get_global_mouse_position()
 		move_direction = global_position.direction_to(mouse_position)
 
-		WorldClock.set_travelling(true)
+		Game.clock.set_travelling(true)
 		can_trigger_poi = true
-
-	#if event.is_action_pressed("fast_forward"):
-	#WorldClock.cycle_time_scale()
 
 
 func _physics_process(_delta: float) -> void:
@@ -43,7 +40,7 @@ func _physics_process(_delta: float) -> void:
 
 	degree_label.text = str(round(global_rotation_degrees)) + "°"
 
-	var current_speed = speed * WorldClock.time_scale
+	var current_speed = speed * Game.clock.get_time_scale()
 
 	velocity = move_direction * current_speed
 	move_and_slide()
@@ -53,5 +50,5 @@ func stop_at_poi() -> void:
 	move_direction = Vector2.ZERO
 	velocity = Vector2.ZERO
 
-	WorldClock.set_travelling(false)
-	WorldClock.set_time_scale(1.0)
+	Game.clock.set_travelling(false)
+	Game.clock.set_time_scale(1.0)

@@ -79,3 +79,16 @@ func size() -> int:
 
 func clear() -> void:
 	_definitions.clear()
+
+
+func update_definition(definition_id: String, definition: Dictionary) -> bool:
+	if not _definitions.has(definition_id):
+		push_error("Cannot update unknown definition: %s" % definition_id)
+		return false
+
+	var updated_definition := definition.duplicate(true)
+	updated_definition["id"] = definition_id
+
+	_definitions[definition_id] = updated_definition
+
+	return true

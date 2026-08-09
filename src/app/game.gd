@@ -20,11 +20,15 @@ const ShopRepository = preload("res://src/domains/shops/shop_repository.gd")
 
 const ShopService = preload("res://src/domains/shops/shop_service.gd")
 
+const SceneService = preload("res://src/core/scenes/scene_service.gd")
+
 const DEFAULT_PLAYER_DATA_PATH := ("res://data/playerData.json")
 
 const SAVE_PLAYER_DATA_PATH := ("user://playerData.json")
 
-const BASE_POI_DATA_PATH := ("res://content/base/world/pois.json")
+const SAVE_POI_DATA_PATH := ("user://poiData.json")
+
+const DEFAULT_POI_DATA_PATH := ("res://content/base/world/pois.json")
 
 const BASE_ITEM_DATA_PATH := ("res://content/base/items/items.json")
 
@@ -36,8 +40,10 @@ var clock = null
 var world = null
 var items = null
 var shops = null
+var scenes = null
 
-var _save_service = null
+var _player_save_service = null
+var _poi_save_service = null
 
 var _poi_repository = null
 var _item_repository = null
@@ -49,9 +55,11 @@ func _ready() -> void:
 
 
 func _initialise_services() -> void:
-	_save_service = SaveService.new(DEFAULT_PLAYER_DATA_PATH, SAVE_PLAYER_DATA_PATH)
+	_create_core_services()
+	_player_save_service = SaveService.new(DEFAULT_PLAYER_DATA_PATH, SAVE_PLAYER_DATA_PATH)
+	_poi_save_service = SaveService.new(DEFAULT_POI_DATA_PATH, SAVE_POI_DATA_PATH)
 
-	var player_state = _save_service.load_player_state()
+	var player_state = _player_save_service.load_player_state()
 
 	if player_state == null:
 		push_error("Could not load PlayerState. Using emergency defaults.")
@@ -65,9 +73,14 @@ func _initialise_services() -> void:
 
 
 func _create_runtime_services(player_state) -> void:
-	player = PlayerService.new(player_state, _save_service)
+	player = PlayerService.new(player_state, _player_save_service)
 
-	clock = GameClockService.new(player_state, _save_service)
+	clock = GameClockService.new(player_state, _player_save_service)
+
+
+func _create_core_services() -> void:
+	scenes = SceneService.new()
+	add_child(scenes)
 
 
 func _load_definition_services() -> void:
@@ -78,13 +91,16 @@ func _load_definition_services() -> void:
 
 func _load_world_definitions() -> void:
 	_poi_repository = PoiRepository.new()
-
-	var loaded: bool = _poi_repository.load_from_file(BASE_POI_DATA_PATH)
+	var poi_data = _poi_save_service.load_poi_data()
+	var loaded: bool = _poi_repository.load_from_dictionary(
+		poi_data,
+		_poi_save_service.get_load_path(),
+	)
 
 	if not loaded:
 		push_error("Could not initialise POI definitions")
 
-	world = WorldService.new(_poi_repository)
+	world = WorldService.new(_poi_repository, _poi_save_service)
 
 	print("World service initialised with %d POIs" % world.get_poi_count())
 
@@ -125,16 +141,16 @@ func _load_shop_definitions() -> void:
 
 
 func reset_game() -> bool:
-	if _save_service == null:
+	if _player_save_service == null:
 		push_error("Game has no SaveService")
 		return false
 
-	var deleted: bool = _save_service.delete_save()
+	var deleted: bool = _player_save_service.delete_save()
 
 	if not deleted:
 		return false
 
-	var player_state = _save_service.load_player_state()
+	var player_state = _player_save_service.load_player_state()
 
 	if player_state == null:
 		player_state = PlayerState.new()

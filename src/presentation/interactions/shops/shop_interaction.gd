@@ -13,6 +13,14 @@ func setup(interaction_data: Dictionary) -> void:
 
 	shop_level = str(interaction_data.get("level", "BASIC")).to_upper()
 
+	print(interaction_data.get("coords"), { })
+	var coords = interaction_data.get("coords")
+	button.position = (
+		Vector2(float(coords.get("x", 0.0)), float(coords.get("y", 0.0)))
+		if interaction_data.has("coords")
+		else Vector2.ZERO
+	)
+
 	var display_name: String = str(interaction_data.get("name", shop_id))
 
 	if button != null:

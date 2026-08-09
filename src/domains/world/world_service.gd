@@ -6,9 +6,12 @@ var _current_poi_id: String = ""
 
 var _poi_repository = null
 
+var _save_service = null
 
-func _init(poi_repository) -> void:
+
+func _init(poi_repository, save_service) -> void:
 	_poi_repository = poi_repository
+	_save_service = save_service
 
 
 func get_poi(poi_id: String) -> Dictionary:
@@ -116,3 +119,90 @@ func get_poi_interactions(poi_id: String) -> Array:
 		return []
 
 	return interactions.duplicate(true)
+
+
+func is_poi_discovered(poi_id: String) -> bool:
+	var poi: Dictionary = get_poi(poi_id)
+
+	if poi.is_empty():
+		return false
+
+	return bool(poi.get("discovered", false))
+
+
+func discover_poi(poi_id: String) -> void:
+	var poi: Dictionary = get_poi(poi_id)
+
+	if poi.is_empty():
+		push_error("Cannot discover unknown POI: %s" % poi_id)
+		return
+
+	if bool(poi.get("discovered", false)):
+		return
+
+	poi["discovered"] = true
+
+	update_poi(poi_id, poi)
+
+
+func get_poi_road_connections(poi_id: String) -> Array[Dictionary]:
+	var poi: Dictionary = get_poi(poi_id)
+
+	if poi.is_empty():
+		return []
+
+	var raw_roads = poi.get("road_connections", [])
+
+	if not raw_roads is Array:
+		push_error("POI '%s' has invalid roads data" % poi_id)
+		return []
+
+	var roads: Array[Dictionary] = []
+
+	for road in raw_roads:
+		if road is Dictionary:
+			roads.append(road)
+		else:
+			push_error("POI '%s' contains an invalid road connection" % poi_id)
+
+	return roads
+
+
+func poi_array_to_dictionary(pois: Array[Dictionary]) -> Dictionary:
+	var result: Dictionary = { }
+
+	for poi: Dictionary in pois:
+		var poi_id: String = poi.get("id", "")
+
+		if poi_id.is_empty():
+			push_error("POI is missing an id")
+			continue
+
+		result[poi_id] = poi
+
+	return result
+
+
+func update_poi(poi_id: String, poi: Dictionary) -> bool:
+	if _poi_repository == null:
+		push_error("WorldService has no PoiRepository")
+		return false
+
+	if not _poi_repository.update_poi(poi_id, poi):
+		return false
+
+	var pois: Dictionary = poi_array_to_dictionary(_poi_repository.get_all_pois())
+
+	return save_poi(pois)
+
+
+func save_poi(pois: Dictionary) -> bool:
+	if _save_service == null:
+		push_error("WorldService has no SaveService")
+		return false
+
+	if _poi_repository == null:
+		push_error("WorldService has no POI repository")
+		return false
+
+	return _save_service.save_poi_data(pois)
